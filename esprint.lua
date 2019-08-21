@@ -115,10 +115,10 @@ minetest.register_globalstep(function(dtime)
 			--Update the players's hud sprint stamina bar
 
 			if SPRINT_HUDBARS_USED then
-				hb.change_hudbar(player, "sprint", playerInfo["stamina"])
+				hb.change_hudbar(player, "sprint", math.floor(playerInfo["stamina"]))
 			else
 				local numBars = (playerInfo["stamina"]/SPRINT_STAMINA)*20
-				player:hud_change(playerInfo["hud"], "number", numBars)
+				player:hud_change(playerInfo["hud"], "number", math.floor(numBars))
 			end
 		end
 	end
